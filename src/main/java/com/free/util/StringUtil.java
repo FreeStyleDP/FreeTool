@@ -22,7 +22,7 @@ public class StringUtil {
 	 * @param flag
 	 * @return
 	 */
-	public static String complementLengh(String goal ,int length ,int location , String flag){
+	public static String complementLengh(String goal ,int length ,int location , char flag){
 		goal = (goal == null) ? "" : goal;
 		StringBuilder addSB = new StringBuilder("");
 		while ( goal.length() + addSB.length() < length) {
