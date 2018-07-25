@@ -16,24 +16,27 @@ public class StringUtil {
 	}
 	/**
 	 * 补足字符串长度
-	 * @param goal
-	 * @param length
+	 * @param goal 目标字符串
+	 * @param length 目标长度
 	 * @param location 0:在前补位  1：在后补位
 	 * @param flag
 	 * @return
 	 */
 	public static String complementLengh(String goal ,int length ,int location , String flag){
 		goal = (goal == null) ? "" : goal;
-		while ( goal.length() < length) {
-			if(location == 0){
-				goal = flag + goal ;
-			}else if(location == 1){
-				goal = goal +flag ;
-			}else {
-				break;
-			}
+		StringBuilder addSB = new StringBuilder("");
+		while ( goal.length() + addSB.length() < length) {
+			addSB.append(flag);
 		}
-		return goal ;
+		if(location == 0){
+			goal = addSB.toString() + goal ;
+		}else if(location == 1){
+			goal = goal +addSB.toString() ;
+		}else {//其他都补在后
+			goal = goal +addSB.toString() ;
+		}
+		
+		return goal;
 	}
 	
 	/**
