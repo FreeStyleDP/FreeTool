@@ -14,6 +14,7 @@ public class Item {
 	private String TypeName;
 	private String ItemDeft;
 	private String ElemType;
+	private String Array;
 	private String NodeType;
 	private String Security;
 	private String EnumName;
@@ -21,6 +22,12 @@ public class Item {
 	private String RelateItemName;
 	private String ScopeExpr;
 	
+	public String getArray() {
+		return Array;
+	}
+	public void setArray(String array) {
+		Array = array;
+	}
 	public String getItemName() {
 		return ItemName;
 	}
@@ -93,102 +100,7 @@ public class Item {
 	public void setScopeExpr(String scopeExpr) {
 		ScopeExpr = scopeExpr;
 	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((ElemType == null) ? 0 : ElemType.hashCode());
-		result = prime * result + ((EnumKvp == null) ? 0 : EnumKvp.hashCode());
-		result = prime * result + ((EnumName == null) ? 0 : EnumName.hashCode());
-		result = prime * result + ((ItemDeft == null) ? 0 : ItemDeft.hashCode());
-		result = prime * result + ((ItemDesc == null) ? 0 : ItemDesc.hashCode());
-		result = prime * result + ((ItemName == null) ? 0 : ItemName.hashCode());
-		result = prime * result + ((ItemType == null) ? 0 : ItemType.hashCode());
-		result = prime * result + ((NodeType == null) ? 0 : NodeType.hashCode());
-		result = prime * result + ((RelateItemName == null) ? 0 : RelateItemName.hashCode());
-		result = prime * result + ((ScopeExpr == null) ? 0 : ScopeExpr.hashCode());
-		result = prime * result + ((Security == null) ? 0 : Security.hashCode());
-		result = prime * result + ((TypeName == null) ? 0 : TypeName.hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Item other = (Item) obj;
-		if (ElemType == null) {
-			if (other.ElemType != null)
-				return false;
-		} else if (!ElemType.equals(other.ElemType))
-			return false;
-		if (EnumKvp == null) {
-			if (other.EnumKvp != null)
-				return false;
-		} else if (!EnumKvp.equals(other.EnumKvp))
-			return false;
-		if (EnumName == null) {
-			if (other.EnumName != null)
-				return false;
-		} else if (!EnumName.equals(other.EnumName))
-			return false;
-		if (ItemDeft == null) {
-			if (other.ItemDeft != null)
-				return false;
-		} else if (!ItemDeft.equals(other.ItemDeft))
-			return false;
-		if (ItemDesc == null) {
-			if (other.ItemDesc != null)
-				return false;
-		} else if (!ItemDesc.equals(other.ItemDesc))
-			return false;
-		if (ItemName == null) {
-			if (other.ItemName != null)
-				return false;
-		} else if (!ItemName.equals(other.ItemName))
-			return false;
-		if (ItemType == null) {
-			if (other.ItemType != null)
-				return false;
-		} else if (!ItemType.equals(other.ItemType))
-			return false;
-		if (NodeType == null) {
-			if (other.NodeType != null)
-				return false;
-		} else if (!NodeType.equals(other.NodeType))
-			return false;
-		if (RelateItemName == null) {
-			if (other.RelateItemName != null)
-				return false;
-		} else if (!RelateItemName.equals(other.RelateItemName))
-			return false;
-		if (ScopeExpr == null) {
-			if (other.ScopeExpr != null)
-				return false;
-		} else if (!ScopeExpr.equals(other.ScopeExpr))
-			return false;
-		if (Security == null) {
-			if (other.Security != null)
-				return false;
-		} else if (!Security.equals(other.Security))
-			return false;
-		if (TypeName == null) {
-			if (other.TypeName != null)
-				return false;
-		} else if (!TypeName.equals(other.TypeName))
-			return false;
-		return true;
-	}
-	@Override
-	public String toString() {
-		return "Item [ItemName=" + ItemName + ", ItemDesc=" + ItemDesc + ", ItemType=" + ItemType + ", TypeName="
-				+ TypeName + ", ItemDeft=" + ItemDeft + ", ElemType=" + ElemType + ", NodeType=" + NodeType
-				+ ", Security=" + Security + ", EnumName=" + EnumName + ", EnumKvp=" + EnumKvp + ", RelateItemName="
-				+ RelateItemName + ", ScopeExpr=" + ScopeExpr + "]";
-	}
+	
 	
 	
 

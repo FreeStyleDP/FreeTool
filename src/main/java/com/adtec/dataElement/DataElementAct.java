@@ -2,6 +2,7 @@ package com.adtec.dataElement;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 import org.dom4j.Attribute;
 import org.dom4j.Document;
@@ -10,7 +11,9 @@ import org.dom4j.Element;
 import org.dom4j.io.OutputFormat;
 import org.dom4j.io.XMLWriter;
 
+import com.adtec.dataElement.entity.DataElement;
 import com.adtec.dataElement.entity.DataElementTab;
+import com.adtec.dataElement.entity.Item;
 
 /**
  * DataElement的相关操作
@@ -49,6 +52,45 @@ public class DataElementAct {
 		
 		Element DataElementTab = document.addElement("DataElementTab");//root
 		
+		int recNum = dataElementTab.getRecNum();
+		DataElementTab.addAttribute("RecNum", String.valueOf(recNum));
+		List<DataElement> dataElementList = dataElementTab.getDataElement();
+		
+		for (int i = 0; i < recNum; i++) {//DataElement循环
+			DataElement dataElement = dataElementList.get(i);
+			Element DataElement = DataElementTab.addElement("DataElement");
+			DataElement.addAttribute("DataType", dataElement.getDataType());
+			DataElement.addAttribute("ElemName", dataElement.getElemName());
+			DataElement.addAttribute("ElemDesc", dataElement.getElemDesc());
+			DataElement.addAttribute("NodeClassName", dataElement.getNodeClassName());
+			DataElement.addAttribute("NodeClassDesc", dataElement.getNodeClassDesc());
+			DataElement.addAttribute("XmlNodeName", dataElement.getXmlNodeName());
+			
+			Element ItemTab = DataElement.addElement("ItemTab");
+			com.adtec.dataElement.entity.ItemTab itemTab = dataElement.getItemTab();
+			List<Item> itemList = itemTab.getItem();
+			int itemRecNum = itemTab.getRecNum();
+			ItemTab.addAttribute("RecNum",  String.valueOf(itemRecNum));
+			for (int j = 0; j < itemRecNum; j++) {
+				Element Item = ItemTab.addElement("Item");
+				com.adtec.dataElement.entity.Item item = itemList.get(j);
+				Item.addAttribute("ItemName", item.getItemName());
+				Item.addAttribute("ItemDesc", item.getItemDesc());
+				Item.addAttribute("ItemType", item.getItemType());
+				Item.addAttribute("TypeName", item.getTypeName());
+				Item.addAttribute("ItemDeft", item.getItemDeft());
+				Item.addAttribute("ElemType", item.getElemType());
+				Item.addAttribute("Array", item.getArray());
+				Item.addAttribute("NodeType", item.getNodeType());
+				Item.addAttribute("Security", item.getSecurity());
+				Item.addAttribute("EnumName", item.getEnumName());
+				Item.addAttribute("EnumKvp", item.getEnumKvp());
+				Item.addAttribute("RelateItemName", item.getRelateItemName());
+				
+				Element ScopeExpr = Item.addElement("ScopeExpr");
+				ScopeExpr.addCDATA(item.getScopeExpr());
+			}
+		}
 		
 		xmlWriter.write(document);
 		xmlWriter.close();
