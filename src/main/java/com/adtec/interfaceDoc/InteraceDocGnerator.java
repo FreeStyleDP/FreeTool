@@ -20,11 +20,12 @@ public class InteraceDocGnerator {
 	 * 		 4. 通过data_name取est_datadict中的类型、长度
 	 * 	3.若为8583，取est_format表中signName、fmt_id
 	 * 		3.1 
+	 * @param project 所属项目    
 	 * @param trans 交易码    
 	 * @author dengp_m   
 	 * @date 2018年8月26日 下午7:38:20 
 	 */
-	public static void generator(String[] trans) {
+	public static void generator(String project , String[] trans) {
 		for (int i = 0; i < trans.length; i++) {
 			
 		}
